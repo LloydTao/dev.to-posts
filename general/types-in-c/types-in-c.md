@@ -189,3 +189,16 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+Hey, guys! Thank you for reading. I hope that you enjoyed this.
+
+Keep up to date with me:
+
+- DEV: https://dev.to/tao/
+- Twitter: https://twitter.com/LloydTao
+- GitHub: https://github.com/LloydTao
+- LinkedIn: https://www.linkedin.com/in/LloydTao/
+
+Catch you around!
