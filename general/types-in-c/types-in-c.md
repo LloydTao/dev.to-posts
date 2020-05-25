@@ -2,7 +2,7 @@ Types in C: The void (\*(\*[])())()
 
 ## Introduction
 
-You've heard of an int and a string, but have you heard of a void (*(*[])())()? 
+You've heard of an `int` and a `string`, but have you heard of a `void (*(*[])())()`? 
 
 Yes, this is a real type declaration in C, and we'll see just how to use it and how to deal with complicated types.
 
