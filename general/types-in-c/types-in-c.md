@@ -8,7 +8,7 @@ One of the C language's superpowers is its low-level memory management.
 
 You've likely manipulated memory before. Most languages allow you to pass variables by reference (i.e. its memory address) as well as by value (i.e. a copy is made so that there are no side effects).
 
-![Pass by Reference vs. Pass by Value Analogy](pass-by-reference-vs-pass-by-value.gif)
+![Pass by Reference vs. Pass by Value Analogy](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/general/types-in-c/pass-by-reference-vs-pass-by-value.gif)
 
 C gives developers a standard low-level interface to program memory on both the heap and the stack. 
 
@@ -20,7 +20,7 @@ Put simply, a pointer is a variable that stores a memory address to another vari
 
 Since a pointer is a variable, we can have a pointer to a pointer. And a pointer to a pointer to a pointer. And so on, and forever. See this diagram for reference:
 
-![Pointer to a Pointer to a Pointer to a Variable](pointers-to-pointers.jpg)
+![Pointer to a Pointer to a Pointer to a Variable](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/general/types-in-c/pointers-to-pointers.jpg)
 
 ---
 
@@ -30,7 +30,7 @@ Since a pointer is a variable, we can have a pointer to a pointer. And a pointer
 
 Using the awesome converter at [cdecl.org](https://cdecl.org/?q=void+%28*%28*foo%5B%5D%29%28%29%29%28%29), we can see what this type declaration really means.
 
-![Conversion with cdecl](cdecl.png)
+![Conversion with cdecl](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/general/types-in-c/cdecl.png)
 
 Let's work backwards to understand what's going on.
 
