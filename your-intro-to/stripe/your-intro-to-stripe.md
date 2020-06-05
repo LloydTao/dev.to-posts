@@ -62,7 +62,7 @@ Remember to verify your account:
 
 Now, grab your public API key:
 
-![Verifying a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Key.png)
+![Getting a Stripe API Key](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Key.png)
 
 ### Example
 
