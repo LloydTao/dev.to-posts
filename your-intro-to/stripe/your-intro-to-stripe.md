@@ -54,7 +54,7 @@ Our tasks at hand are essentially:
 
 Head to https://dashboard.stripe.com/register to create an account.
 
-![Registering a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Account.png)
+![Registering a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/001-Stripe-Account.png)
 
 ### Example
 
