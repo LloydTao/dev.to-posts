@@ -86,6 +86,23 @@ Install your packages with `pip install -r requirements.txt`.
 
 **Stripe Setup**
 
+In the settings, make sure you've added Stripe to your `INSTALLED_APPS` and defined the keys.
+
+```python
+...
+
+INSTALLED_APPS = [
+    ...
+    'stripe',
+]
+
+...
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_notmykeynotmykeynotmykeynotmykeynotmykeynotmykeynotmykey'
+
+STRIPE_SECRET_KEY = 'sk_test_notmykeynotmykeynotmykeynotmykeynotmykeynotmykeynotmykey'
+```
+
 Once you've set up your project, import `stripe` and define `stripe.api_key` in your views.
 
 ```python
@@ -100,7 +117,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class ...
 ```
 
-
+We can now get started with some views and templates!
 
 ### Adding Stripe to the Frontend
 
@@ -172,6 +189,71 @@ We can try out our form with a [test card](https://stripe.com/docs/testing#cards
 
 ![Stripe Payment Demo](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/005-Stripe-Payment.png)
 
-We can see the payment on the dashboard.
+We can now see the payment on the dashboard.
 
 ![Stripe Dashboard Demo](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/006-Stripe-Dashboard.png)
+
+Super easy, right? You can now begin to explore the big, wide world of internet commerce!
+
+## Summary
+
+### What We Covered
+
+In this post, we had a look at:
+
+- Creating a Stripe account.
+
+- Getting our API keys.
+
+- Adding Stripe to our Django backend.
+
+- Creating views and templates for our frontend.
+
+- Handling the post request using `stripe.Charge.create()`.
+
+- Viewing payments on the dashboard.
+
+### What We Missed
+
+There's a whole bunch of stuff to do after payment.
+
+- How do I get the money? [Receive payouts](https://stripe.com/docs/payouts).
+
+- How do I react to a payment? [Handle webhook events](https://stripe.com/docs/payments/handling-payment-events).
+
+- How do I send receipts? [Send email receipts](https://stripe.com/docs/receipts).
+
+- A payment was declined. [Deal with declines](https://stripe.com/docs/declines).
+
+- My customer wants a refund. [Issue refunds](https://stripe.com/docs/refunds).
+
+- What about fraudulent payments? [Manage disputes and fraud](https://stripe.com/docs/disputes).
+
+As well as the pages above, there's also API docs, such as the [API: Refunds](https://stripe.com/docs/api/refunds) page.
+
+### Further Reading
+
+Payments are tricky business, and you don't want to head in the wrong way.
+
+- Check out the [dj-stripe](https://pypi.org/project/dj-stripe/) package, and its [Django + Stripe Made Easy](https://dj-stripe.readthedocs.io/en/stable/) docs.
+
+- *Also, consider some [Reddit opinions](https://www.reddit.com/r/django/comments/gt21py/stripe_with_django_are_you_using_just_stripe_or/) on using `dj-stripe` over the Stripe API*.
+
+- Check out [Create a Subscription SaaS Application with Django and Stripe](https://www.saaspegasus.com/guides/django-stripe-integrate/#upcoming-working-with-subscriptions-in-your-django-application) by *SaaS Pegasus*.
+
+- Check out [another brilliant post](https://mycodestories.com/blog/stripe_django_payments/) on using Django with Stripe.
+
+The Django subreddit ([r/django](https://www.reddit.com/r/django/)) is an awesome, active and high-quality community.
+
+---
+
+Hey, guys! Thank you for reading. I hope that you enjoyed this.
+
+Keep up to date with me:
+
+- DEV: https://dev.to/tao/
+- Twitter: https://twitter.com/LloydTao
+- GitHub: https://github.com/LloydTao
+- LinkedIn: https://www.linkedin.com/in/LloydTao/
+
+Catch you around!
