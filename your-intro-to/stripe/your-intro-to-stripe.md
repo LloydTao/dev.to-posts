@@ -64,6 +64,16 @@ Now, grab your public API key:
 
 ![Getting a Stripe API Key](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Key.png)
 
+### Installing the Stripe API
+
+Make sure you've set up your project, virtual environment and requirements. [Here's a guide](https://dev.to/tao/your-intro-to-django-2020-3a01).
+
+Add Stripe to your requirements for pip. You'll probably want the latest version.
+
+![Adding Stripe to Requirements](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/004-Django-Requirements.png)
+
+
+
 ### Example
 
 A Django template will look something like:
