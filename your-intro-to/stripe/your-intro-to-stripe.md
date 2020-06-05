@@ -1,10 +1,14 @@
-## Your Intro to Stripe Payment Processing (Django)
+## Your Intro to Stripe (Django)
 
 ### Introduction
 
 Stripe is an online payments processor.
 
-It's useful for any internet commerce; from online stores to subscriptions, and from marketplaces to crowdfunding.
+It's incredible useful for almost any internet commerce; from online stores to subscriptions, and from user-driven marketplaces to crowdfunding.
+
+This guide will briefly overview Stripe and its API, and give examples on how to integrate it with Django.
+
+*If you're using a different framework, it should be easily adaptable!*
 
 ### Features
 
@@ -14,7 +18,9 @@ Stripe is **robust**. It can send dummy payments with test cards before completi
 
 Stripe is **secure**. AES-256 encryption is built in, with decryption keys stored separately.
 
-Stripe is **compliant**. It has PCI, PSD2, SCA and SSAE18/SOC certifications, and has licenses globally.
+Stripe is **compliant**. This includes PCI, PSD2, SCA and SSAE18/SOC certifications.
+
+![Stripe Compliance Certifications](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/000-Stripe-Compliant.png)
 
 ### Fees
 
@@ -66,21 +72,34 @@ Now, grab your public API key:
 
 ### Installing the Stripe API
 
-Make sure you've set up your project, virtual environment and requirements. [Here's a guide](https://dev.to/tao/your-intro-to-django-2020-3a01).
+Make sure you've set up your project, virtual environment and requirements. [Here's a Django guide](https://dev.to/tao/your-intro-to-django-2020-3a01).
 
 Add Stripe to your requirements for pip. You'll probably want the latest version.
 
 ![Adding Stripe to Requirements](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/004-Django-Requirements.png)
 
+Since it's Django, we'll set up an app called `payments`.
 
+Creating apps is covered in the guide, but a brief overview is:
 
-### Example
+- Create app: `python manage.py startapp payments`
 
-A Django template will look something like:
+- Install app: `INSTALLED_APPS = [ ... , 'payments.apps.PaymentsConfig']`
+
+- Route to the app: `urlpatterns = [ ... , path('', include('payments.urls'))`
+
+I'll assume you can do the routes and views from here.
+
+### Adding Stripe to the Frontend
+
+Using Stripe Checkout, we can create a form incredibly quickly.
+
+The Django template will look something like:
 
 ```html
 <h1>Purchase hat:</h1>
 <form action="{% url 'charge' %}" method="POST">
+  {% csrf_token %}
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="{{ key }}"
           data-description="You are purchasing: Hat."
