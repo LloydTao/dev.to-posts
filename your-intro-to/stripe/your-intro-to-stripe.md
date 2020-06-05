@@ -72,13 +72,35 @@ Now, grab your API keys. You'll need both.
 
 ### Installing the Stripe API
 
+Let's set up the backend. This is where the private API key will live.
+
+**Project Setup**
+
 Make sure you've set up your project, virtual environment and requirements. [Here's a Django guide](https://dev.to/tao/your-intro-to-django-2020-3a01).
 
 Add Stripe to your `requirements.txt` for pip. You'll probably want the latest version.
 
 ![Adding Stripe to Requirements](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/004-Django-Requirements.png)
 
-Install with `pip install -r requirements.txt`.
+Install your packages with `pip install -r requirements.txt`.
+
+**Stripe Setup**
+
+Once you've set up your project, import `stripe` and define `stripe.api_key` in your views.
+
+```python
+import stripe
+
+from django.conf import settings
+from django.shortcuts import render
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+class ...
+```
+
+
 
 ### Adding Stripe to the Frontend
 
@@ -98,7 +120,7 @@ class HomeView(TemplateView):
         return context
 ```
 
-Our template will be a pretty basic form, with something similar to the script.
+Our template will be include a form, as well as a script based on `checkout.js`.
 
 ```html
 <h1>Purchase hat:</h1>
@@ -150,3 +172,6 @@ We can try out our form with a [test card](https://stripe.com/docs/testing#cards
 
 ![Stripe Payment Demo](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/005-Stripe-Payment.png)
 
+We can see the payment on the dashboard.
+
+![Stripe Dashboard Demo](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/006-Stripe-Dashboard.png)
