@@ -32,13 +32,13 @@ Stripe **Billing**, used for recurring payments, charges 0.5%.
 
 Stripe has a host of additional features:
 
-- Stripe **Connect** for marketplaces with dedicated sellers, with a monthly fee per account.
+- Stripe **Connect** - dedicated dashboard for sellers on your marketplace, with a monthly fee per account.
 
-- Stripe **Radar** for machine learning fraud protection.
+- Stripe **Radar** -  machine learning fraud protection.
 
-- Stripe **Sigma** for business reports powered by SQL.
+- Stripe **Sigma** - SQL-powered business reports, with dozens of templates.
 
-- Stripe **Atlas** to launch a start-up (LLC, bank account, stock issuing) for a one-time fee.
+- Stripe **Atlas** - launch a start-up (LLC, bank account, stock issuing) for a one-time fee.
 
 We'll be taking advantage of [Stripe Checkout](https://stripe.com/docs/payments/checkout) for quick and compliant integration.
 
