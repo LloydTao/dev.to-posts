@@ -56,6 +56,10 @@ Head to https://dashboard.stripe.com/register to create an account.
 
 ![Registering a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/001-Stripe-Account.png)
 
+Remember to verify your account:
+
+![Verifying a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/002-Stripe-Verify.png)
+
 ### Example
 
 A Django template will look something like:
