@@ -52,7 +52,7 @@ Our tasks at hand are essentially:
 
 2. Install the Stripe API for the backend (Python: `$ pip install stripe`).
 
-3. Add Stripe to the front-end (we're using `checkout.js`).
+3. Add Stripe to the frontend (we're using `checkout.js`).
 
 4. We're done! View processed payments on your Stripe account.
 
@@ -74,31 +74,23 @@ Now, grab your public API key:
 
 Make sure you've set up your project, virtual environment and requirements. [Here's a Django guide](https://dev.to/tao/your-intro-to-django-2020-3a01).
 
-Add Stripe to your requirements for pip. You'll probably want the latest version.
+Add Stripe to your `requirements.txt` for pip. You'll probably want the latest version.
 
 ![Adding Stripe to Requirements](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/004-Django-Requirements.png)
 
-Since it's Django, we'll set up an app called `payments`.
-
-Creating apps is covered in the guide, but a brief overview is:
-
-- Create app: `python manage.py startapp payments`
-
-- Install app: `INSTALLED_APPS = [ ... , 'payments.apps.PaymentsConfig']`
-
-- Route to the app: `urlpatterns = [ ... , path('', include('payments.urls'))`
-
-I'll assume you can do the routes and views from here.
+Install with `pip install -r requirements.txt`.
 
 ### Adding Stripe to the Frontend
 
-Using Stripe Checkout, we can create a form incredibly quickly.
+Using Stripe Checkout, we can create a payment form (and handle it) incredibly quickly.
 
-The Django template will look something like:
+**Product Page**
+
+To create a form, the Django template will look something like this:
 
 ```html
 <h1>Purchase hat:</h1>
-<form action="{% url 'charge' %}" method="POST">
+<form action="{% url 'payments-charge' %}" method="POST">
   {% csrf_token %}
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="{{ key }}"
