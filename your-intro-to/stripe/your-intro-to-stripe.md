@@ -60,6 +60,10 @@ Remember to verify your account:
 
 ![Verifying a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/002-Stripe-Verify.png)
 
+Now, grab your public API key:
+
+![Verifying a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Key.png)
+
 ### Example
 
 A Django template will look something like:
