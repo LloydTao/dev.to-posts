@@ -86,7 +86,20 @@ Using Stripe Checkout, we can create a payment form (and handle it) incredibly q
 
 **Product Page**
 
-To create a form, the Django template will look something like this:
+
+We want a very simple view, with our API key added to the context.
+
+```python
+class HomeView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
+```
+
+The Django template will look something like this:
 
 ```html
 <h1>Purchase hat:</h1>
@@ -101,11 +114,10 @@ To create a form, the Django template will look something like this:
   </script>
 </form>
 ```
-
-The resulting page looks like:
+Stripe will validate the payment form. The result looks like:
 
 ![Example Stripe Form](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/002-Stripe-Form.png)
 
-Stripe will validate the payment form before submitting it.
+**Payment View**
 
 
