@@ -48,7 +48,7 @@ We'll be taking advantage of [Stripe Checkout](https://stripe.com/docs/payments/
 
 Our tasks at hand are essentially:
 
-1. Create a Stripe account and grab your API key.
+1. Create a Stripe account, and grab your API keys.
 
 2. Install the Stripe API for the backend (Python: `$ pip install stripe`).
 
@@ -62,11 +62,11 @@ Head to https://dashboard.stripe.com/register to create an account.
 
 ![Registering a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/001-Stripe-Account.png)
 
-Remember to verify your account:
+Remember to verify your account.
 
 ![Verifying a Stripe Account](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/002-Stripe-Verify.png)
 
-Now, grab your public API key:
+Now, grab your API keys. You'll need both.
 
 ![Getting a Stripe API Key](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/003-Stripe-Key.png)
 
@@ -86,8 +86,7 @@ Using Stripe Checkout, we can create a payment form (and handle it) incredibly q
 
 **Product Page**
 
-
-We want a very simple view, with our API key added to the context.
+We'll make a very simple view, with our API key added to the context.
 
 ```python
 class HomeView(TemplateView):
@@ -99,7 +98,7 @@ class HomeView(TemplateView):
         return context
 ```
 
-The Django template will look something like this:
+Our template will be a pretty basic form, with something similar to the script.
 
 ```html
 <h1>Purchase hat:</h1>
@@ -120,4 +119,34 @@ Stripe will validate the payment form. The result looks like:
 
 **Payment View**
 
+You'll need a view that uses `stripe.Charge.create()`.
+
+You'll notice that the values are hard-coded. You need to enforce them server-side, otherwise the client can just edit the values in the Stripe form.
+
+```python
+class ChargeView(TemplateView):
+
+    def post(self, request):
+        charge = stripe.Charge.create(
+            amount = 100,
+            currency = 'gbp',
+            description = 'Hat purchase.',
+            source=request.POST['stripeToken']
+        )
+        return HttpResponse('charge.html')
+```
+
+As for the template, it doesn't need anything. All functionality is handled in the `post`.
+
+```html
+<p>Thank you for your payment!</p>
+```
+
+You'll likely want to pass some context data in order to personalise it.
+
+**Demo**
+
+We can try out our form with a [test card](https://stripe.com/docs/testing#cards).
+
+![Stripe Payment Demo](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/your-intro-to/stripe/005-Stripe-Payment.png)
 
