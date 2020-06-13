@@ -40,7 +40,7 @@ It's true that using a trailing comma after the final value will prevent conflic
 
 ![Comma-Leading JSON](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/general/comma-leading-lists/leading-sql.png)
 
-**The JSON standard** and **Pre-ES5 JavaScript** doesn't support them.
+The **JSON standard** and **Pre-ES5 JavaScript** don't support them.
 
 ![Comma-Leading JSON](https://raw.githubusercontent.com/LloydTao/dev.to-posts/master/general/comma-leading-lists/leading-json.png)
 
